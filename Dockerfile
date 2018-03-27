@@ -12,3 +12,4 @@ RUN \
     /usr/local/sbin/docker-cleanup
 
 ENTRYPOINT ["/usr/sbin/syslog-ng", "-F"]
+RUN echo "Source: https://github.com/ypcs/docker-syslog\nBuild date: $(date +%Y-%m-%d\ %H:%M:%S)" >/README
