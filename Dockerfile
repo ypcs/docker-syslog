@@ -1,4 +1,4 @@
-FROM ypcs/debian:stretch
+FROM ypcs/debian:bullseye
 
 #EXPOSE 514/udp
 #EXPOSE 601/tcp
