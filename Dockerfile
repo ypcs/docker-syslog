@@ -5,11 +5,12 @@ FROM ypcs/debian:bullseye
 #EXPOSE 6514/tcp
 
 RUN \
-    /usr/local/sbin/docker-upgrade && \
+    /usr/lib/docker-helpers/apt-setup && \
+    /usr/lib/docker-helpers/apt-upgrade && \
     apt-get --assume-yes install \
         syslog-ng \
         syslog-ng-mod-date && \
-    /usr/local/sbin/docker-cleanup
+    /usr/lib/docker-helpers/apt-cleanup
 
 ENTRYPOINT ["/usr/sbin/syslog-ng", "-F"]
 RUN echo "Source: https://github.com/ypcs/docker-syslog\nBuild date: $(date --iso-8601=ns)" >/README
